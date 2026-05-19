@@ -1,0 +1,18 @@
+Ordre recommande d'execution des scripts SQL
+
+1. 01_tables.sql
+2. 02_donnees.sql
+3. 03_views.sql
+4. 04_index.sql
+5. 05_routines.sql
+6. 06_autorisations.sql
+7. 08_community_forum.sql
+8. 07_transaction_scenarios.sql (optionnel, pour demonstration et tests)
+
+Remarques
+- Le schema `artwork.price` est defini directement en `DECIMAL(15,2)` dans `01_tables.sql`.
+- Le script `02_donnees.sql` ne modifie plus la structure.
+- Le script `06_autorisations.sql` doit etre execute une seule fois si votre version MySQL ne supporte pas `IF NOT EXISTS`.
+- Le script `08_community_forum.sql` ajoute la table `community_post`, ses index et les messages d'exemple utilises par l'onglet Community.
+- Le script `07_transaction_scenarios.sql` illustre un cas transactionnel complexe a executer apres les donnees et routines.
+- Le fichier `03_views_et_index.sql` est conserve comme ancienne version fusionnee, mais la version propre a utiliser est `03_views.sql` + `04_index.sql`.
