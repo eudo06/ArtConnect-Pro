@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.project.artconnect.ui.MesInscriptionsController">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+
+    <!-- En-tête -->
+    <HBox spacing="10.0" alignment="CENTER_LEFT">
+        <Label fx:id="labelMembre"
+               style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+        <Label fx:id="labelTotal"
+               style="-fx-text-fill: #666666;" />
+        <Button text="Rafraichir" onAction="#handleRefresh" />
+    </HBox>
+
+    <!-- Tableau des inscriptions -->
+    <TableView fx:id="bookingTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="workshopColumn"    text="Atelier"      prefWidth="220" />
+            <TableColumn fx:id="instructorColumn"  text="Instructeur"  prefWidth="160" />
+            <TableColumn fx:id="dateColumn"        text="Date réservation" prefWidth="160" />
+            <TableColumn fx:id="locationColumn"    text="Lieu"         prefWidth="150" />
+            <TableColumn fx:id="statusColumn"      text="Statut"       prefWidth="100" />
+        </columns>
+        <placeholder>
+            <Label text="Aucune inscription pour le moment." />
+        </placeholder>
+    </TableView>
+
+</VBox>

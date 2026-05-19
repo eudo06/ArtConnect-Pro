@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.project.artconnect.ui.CommunityController">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+
+    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+
+        <!-- ================================================ -->
+        <!-- ONGLET 1 — Membres                               -->
+        <!-- ================================================ -->
+        <Tab text="Membres">
+            <VBox spacing="10.0">
+                <padding><Insets bottom="8.0" left="4.0" right="4.0" top="8.0" /></padding>
+
+                <TableView fx:id="memberTable" prefHeight="260" VBox.vgrow="NEVER">
+                    <columns>
+                        <TableColumn fx:id="nameColumn"       text="Nom"      prefWidth="200" />
+                        <TableColumn fx:id="emailColumn"      text="Email"    prefWidth="200" />
+                        <TableColumn fx:id="cityColumn"       text="Ville"    prefWidth="130" />
+                        <TableColumn fx:id="membershipColumn" text="Adhesion" prefWidth="100" />
+                    </columns>
+                    <placeholder><Label text="Aucun membre trouvé." /></placeholder>
+                </TableView>
+
+                <GridPane hgap="10.0" vgap="8.0">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="120.0" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                    </columnConstraints>
+                    <Label text="Membre"     GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                    <Label fx:id="detailsMemberLabel"     text="-" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                    <Label text="Adhesion"   GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                    <Label fx:id="detailsMembershipLabel" text="-" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                    <Label fx:id="labelPhone" text="Telephone" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                    <Label fx:id="detailsPhoneLabel"      text="-" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                    <Label text="Disciplines" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                    <Label fx:id="detailsDisciplinesLabel" text="-" wrapText="true" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                    <Label text="Activite"   GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                    <TextArea fx:id="detailsActivityArea" prefRowCount="3" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+                </GridPane>
+            </VBox>
+        </Tab>
+
+        <!-- ================================================ -->
+        <!-- ONGLET 2 — Forum                                 -->
+        <!-- ================================================ -->
+        <Tab text="Forum">
+            <HBox spacing="12.0" VBox.vgrow="ALWAYS">
+                <padding><Insets bottom="8.0" left="4.0" right="4.0" top="8.0" /></padding>
+
+                <!-- Colonne gauche : liste communautés -->
+                <VBox spacing="6.0" prefWidth="200" minWidth="160">
+                    <Label text="Communautes"
+                           style="-fx-font-weight: bold; -fx-font-size: 13; -fx-text-fill: #1A1A2E;" />
+                    <ListView fx:id="communityList" VBox.vgrow="ALWAYS" />
+                </VBox>
+
+                <!-- Colonne droite : messages + saisie -->
+                <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+
+                    <Label fx:id="forumCommunityLabel"
+                           text="Selectionnez une communaute"
+                           style="-fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #6D2E46;" />
+
+                    <!-- Zone de messages scrollable -->
+                    <ScrollPane fx:id="forumScrollPane"
+                                VBox.vgrow="ALWAYS" fitToWidth="true" hbarPolicy="NEVER"
+                                style="-fx-background-color: #F8F4F0; -fx-border-color: #E0D4C8;">
+                        <VBox fx:id="forumMessagesBox" spacing="8.0">
+                            <padding>
+                                <Insets bottom="10.0" left="6.0" right="6.0" top="10.0" />
+                            </padding>
+                        </VBox>
+                    </ScrollPane>
+
+                    <!-- Zone de saisie -->
+                    <VBox spacing="6.0"
+                          style="-fx-background-color: #F0EBE3; -fx-border-color: #D0C4B8; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 10;">
+                        <TextArea fx:id="forumInput"
+                                  promptText="Ecrivez votre message..."
+                                  prefRowCount="3" wrapText="true" />
+                        <HBox alignment="CENTER_RIGHT" spacing="8.0">
+                            <Label text="Membres Premium uniquement"
+                                   style="-fx-text-fill: #888888; -fx-font-size: 11; -fx-font-style: italic;" />
+                            <Button fx:id="btnPublier" text="Publier"
+                                    onAction="#handlePublier"
+                                    style="-fx-background-color: #6D2E46; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 6 24; -fx-background-radius: 4;" />
+                        </HBox>
+                    </VBox>
+
+                </VBox>
+            </HBox>
+        </Tab>
+
+    </TabPane>
+</VBox>

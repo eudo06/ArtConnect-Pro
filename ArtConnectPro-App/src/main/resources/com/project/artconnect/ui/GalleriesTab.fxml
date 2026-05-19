@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.project.artconnect.ui.GalleryController"
+      spacing="0" styleClass="content-area">
+
+    <HBox styleClass="page-header" alignment="CENTER_LEFT" spacing="16">
+        <VBox spacing="2" HBox.hgrow="ALWAYS">
+            <Label text="Galeries" styleClass="page-title" />
+            <Label text="Les galeries partenaires d'ArtConnect." styleClass="page-subtitle" />
+        </VBox>
+    </HBox>
+
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+        <padding><Insets bottom="16" left="16" right="16" top="16" /></padding>
+
+        <!-- Tableau -->
+        <VBox spacing="10" HBox.hgrow="ALWAYS">
+            <TableView fx:id="galleryTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="nameColumn"    text="Galerie"   prefWidth="200" />
+                    <TableColumn fx:id="addressColumn" text="Adresse"   prefWidth="230" />
+                    <TableColumn fx:id="hoursColumn"   text="Horaires"  prefWidth="160" />
+                    <TableColumn fx:id="ratingColumn"  text="Note"      prefWidth="110" />
+                </columns>
+                <placeholder><Label text="Aucune galerie trouvée." /></placeholder>
+            </TableView>
+        </VBox>
+
+        <!-- Détails -->
+        <VBox spacing="12" prefWidth="340" minWidth="300" styleClass="details-pane">
+
+            <Label text="Détails" style="-fx-font-family: Georgia; -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #1A1A2E;" />
+            <Separator />
+
+            <VBox spacing="2">
+                <Label text="GALERIE" styleClass="detail-key" />
+                <Label fx:id="detailsNameLabel" text="—"
+                       style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #1A1A2E;"
+                       wrapText="true" />
+            </VBox>
+
+            <HBox spacing="16">
+                <VBox spacing="2" HBox.hgrow="ALWAYS">
+                    <Label text="PROPRIETAIRE" styleClass="detail-key" />
+                    <Label fx:id="detailsOwnerLabel" text="—" styleClass="detail-label" />
+                </VBox>
+                <VBox spacing="2" HBox.hgrow="ALWAYS">
+                    <Label text="NOTE" styleClass="detail-key" />
+                    <Label fx:id="detailsRatingLabel" text="—" styleClass="rating-label" />
+                </VBox>
+            </HBox>
+
+            <VBox spacing="2">
+                <Label text="TELEPHONE" styleClass="detail-key" />
+                <Label fx:id="detailsContactLabel" text="—" styleClass="detail-label" />
+            </VBox>
+
+            <VBox spacing="2">
+                <Label text="HORAIRES" styleClass="detail-key" />
+                <Label fx:id="detailsHoursLabel" text="—" styleClass="detail-label" wrapText="true" />
+            </VBox>
+
+            <VBox spacing="2">
+                <Label text="SITE WEB" styleClass="detail-key" />
+                <Hyperlink fx:id="detailsWebsiteLink" text="—" />
+            </VBox>
+
+            <VBox spacing="2" VBox.vgrow="ALWAYS">
+                <Label text="EXPOSITIONS" styleClass="detail-key" />
+                <TextArea fx:id="detailsExhibitionsArea" prefRowCount="6"
+                          editable="false" wrapText="true"
+                          style="-fx-background-color: #F8F6F3; -fx-border-color: transparent;" />
+            </VBox>
+
+        </VBox>
+    </HBox>
+</VBox>

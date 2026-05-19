@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.project.artconnect.ui.LoginController"
+      stylesheets="@artconnect.css"
+      prefWidth="900" prefHeight="580">
+
+    <!-- Panneau gauche — branding sombre -->
+    <VBox prefWidth="380" spacing="0"
+          style="-fx-background-color: #1A1A2E;">
+        <VBox VBox.vgrow="ALWAYS" alignment="CENTER" spacing="18"
+              style="-fx-padding: 48;">
+            <Label text="ArtConnect"
+                   style="-fx-font-family: Georgia; -fx-font-size: 40px; -fx-font-weight: bold; -fx-text-fill: white;" />
+            <Label text="Pro"
+                   style="-fx-font-family: Georgia; -fx-font-size: 18px; -fx-text-fill: #6D2E46; -fx-font-style: italic;" />
+            <Region prefHeight="10" />
+            <Label text="Connectez artistes, oeuvres et communautes artistiques locales."
+                   wrapText="true" maxWidth="280"
+                   style="-fx-font-family: Calibri; -fx-font-size: 13px; -fx-text-fill: #8090A8; -fx-text-alignment: center; -fx-line-spacing: 3;" />
+        </VBox>
+        <Label text="TI603 Bases de donnees 2  —  INGE1"
+               style="-fx-font-family: Calibri; -fx-font-size: 10px; -fx-text-fill: #2A2A4A; -fx-padding: 0 0 20 20;" />
+    </VBox>
+
+    <!-- Panneau droit — formulaire -->
+    <VBox HBox.hgrow="ALWAYS" alignment="CENTER" spacing="22"
+          style="-fx-background-color: #F8F6F3; -fx-padding: 48;">
+
+        <VBox spacing="4">
+            <Label text="Bienvenue"
+                   style="-fx-font-family: Georgia; -fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #1A1A2E;" />
+            <Label text="Connectez-vous pour acceder a la plateforme."
+                   style="-fx-font-family: Calibri; -fx-font-size: 13px; -fx-text-fill: #64748B;" />
+        </VBox>
+
+        <VBox spacing="16" maxWidth="340">
+
+            <!-- Demo rapide -->
+            <VBox spacing="6">
+                <Label text="CONNEXION RAPIDE"
+                       style="-fx-font-family: Calibri; -fx-font-size: 10px; -fx-text-fill: #64748B; -fx-font-weight: bold;" />
+                <ComboBox fx:id="accountBox"
+                          promptText="Selectionner un compte demo..."
+                          maxWidth="Infinity" />
+            </VBox>
+
+            <!-- Divider -->
+            <HBox alignment="CENTER" spacing="10">
+                <Region HBox.hgrow="ALWAYS" style="-fx-border-color: #E8E0D8; -fx-border-width: 1 0 0 0; -fx-pref-height: 1;" />
+                <Label text="ou" style="-fx-text-fill: #B0B8C8; -fx-font-size: 11px;" />
+                <Region HBox.hgrow="ALWAYS" style="-fx-border-color: #E8E0D8; -fx-border-width: 1 0 0 0; -fx-pref-height: 1;" />
+            </HBox>
+
+            <!-- Email -->
+            <VBox spacing="5">
+                <Label text="EMAIL"
+                       style="-fx-font-family: Calibri; -fx-font-size: 10px; -fx-text-fill: #64748B; -fx-font-weight: bold;" />
+                <TextField fx:id="emailField"
+                           promptText="votre.email@artconnect.com"
+                           maxWidth="Infinity" />
+            </VBox>
+
+            <!-- Mot de passe -->
+            <VBox spacing="5">
+                <Label text="MOT DE PASSE"
+                       style="-fx-font-family: Calibri; -fx-font-size: 10px; -fx-text-fill: #64748B; -fx-font-weight: bold;" />
+                <PasswordField fx:id="passwordField"
+                               promptText="••••••••"
+                               maxWidth="Infinity" />
+            </VBox>
+
+            <!-- Message aide/erreur -->
+            <Label fx:id="helpLabel"
+                   text="Selectionnez un compte demo ou saisissez vos identifiants."
+                   wrapText="true" maxWidth="340"
+                   style="-fx-font-family: Calibri; -fx-font-size: 11px; -fx-text-fill: #64748B;" />
+
+            <!-- Bouton connexion -->
+            <Button fx:id="loginButton"
+                    text="Se connecter"
+                    onAction="#handleLogin"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: #6D2E46; -fx-text-fill: white; -fx-font-family: Calibri; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 11 0; -fx-background-radius: 6; -fx-cursor: hand; -fx-border-radius: 6;" />
+        </VBox>
+
+    </VBox>
+
+</HBox>

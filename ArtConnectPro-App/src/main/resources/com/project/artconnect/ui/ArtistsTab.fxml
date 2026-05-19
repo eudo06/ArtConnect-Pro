@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.project.artconnect.ui.ArtistController"
+      spacing="0" styleClass="content-area">
+
+    <!-- En-tête de page -->
+    <HBox styleClass="page-header" alignment="CENTER_LEFT" spacing="16">
+        <VBox spacing="2" HBox.hgrow="ALWAYS">
+            <Label text="Artistes" styleClass="page-title" />
+            <Label text="Explorez et gérez les artistes de la plateforme." styleClass="page-subtitle" />
+        </VBox>
+        <TextField fx:id="searchField" promptText="Rechercher un artiste..."
+                   prefWidth="220" />
+        <ComboBox fx:id="disciplineFilter" promptText="Discipline" prefWidth="160" />
+        <Button text="Rechercher" onAction="#handleSearch" />
+        <Button text="Réinitialiser" onAction="#handleReset" />
+    </HBox>
+
+    <!-- Corps : tableau + détails côte à côte -->
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+        <padding><Insets bottom="16" left="16" right="16" top="16" /></padding>
+
+        <!-- Tableau des artistes -->
+        <VBox spacing="10" HBox.hgrow="ALWAYS">
+            <TableView fx:id="artistTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="nameColumn"  text="Nom"        prefWidth="180" />
+                    <TableColumn fx:id="cityColumn"  text="Ville"      prefWidth="120" />
+                    <TableColumn fx:id="emailColumn" text="Email"      prefWidth="180" />
+                    <TableColumn fx:id="yearColumn"  text="Naissance"  prefWidth="90" />
+                </columns>
+                <placeholder><Label text="Aucun artiste trouvé." /></placeholder>
+            </TableView>
+
+            <!-- Boutons CRUD -->
+            <HBox spacing="8" alignment="CENTER_RIGHT">
+                <Button fx:id="btnAdd"    text="+ Ajouter"   onAction="#handleAddArtist"    styleClass="button-primary" />
+                <Button fx:id="btnEdit"   text="Modifier"    onAction="#handleEditArtist" />
+                <Button fx:id="btnDelete" text="Supprimer"   onAction="#handleDeleteArtist" />
+            </HBox>
+        </VBox>
+
+        <!-- Panneau de détails -->
+        <VBox spacing="12" prefWidth="340" minWidth="300" styleClass="details-pane">
+
+            <Label text="Détails" styleClass="page-title"
+                   style="-fx-font-size: 16px;" />
+            <Separator />
+
+            <!-- Nom -->
+            <VBox spacing="2">
+                <Label text="ARTISTE" styleClass="detail-key" />
+                <Label fx:id="detailsNameLabel" text="—" styleClass="detail-label"
+                       style="-fx-font-size: 15px; -fx-font-weight: bold;" wrapText="true" />
+            </VBox>
+
+            <!-- Ville + Email -->
+            <HBox spacing="16">
+                <VBox spacing="2" HBox.hgrow="ALWAYS">
+                    <Label text="VILLE" styleClass="detail-key" />
+                    <Label fx:id="detailsCityLabel" text="—" styleClass="detail-label" />
+                </VBox>
+                <VBox spacing="2" HBox.hgrow="ALWAYS">
+                    <Label text="EMAIL" styleClass="detail-key" />
+                    <Label fx:id="detailsEmailLabel" text="—" styleClass="detail-label" wrapText="true" />
+                </VBox>
+            </HBox>
+
+            <!-- Disciplines -->
+            <VBox spacing="2">
+                <Label text="DISCIPLINES" styleClass="detail-key" />
+                <Label fx:id="detailsDisciplinesLabel" text="—" styleClass="tags-label"
+                       wrapText="true" />
+            </VBox>
+
+            <!-- Bio -->
+            <VBox spacing="2" VBox.vgrow="ALWAYS">
+                <Label text="BIOGRAPHIE" styleClass="detail-key" />
+                <TextArea fx:id="detailsBioArea" prefRowCount="4" wrapText="true"
+                          style="-fx-background-color: #F8F6F3; -fx-border-color: transparent;" />
+            </VBox>
+
+            <!-- Événements -->
+            <VBox spacing="2">
+                <Label text="EVENEMENTS LIES" styleClass="detail-key" />
+                <TextArea fx:id="detailsEventsArea" prefRowCount="4"
+                          editable="false" wrapText="true"
+                          style="-fx-background-color: #F8F6F3; -fx-border-color: transparent;" />
+            </VBox>
+
+        </VBox>
+    </HBox>
+</VBox>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.project.artconnect.ui.DiscoverController">
+    <padding>
+        <Insets bottom="10.0" left="14.0" right="14.0" top="10.0" />
+    </padding>
+
+    <!-- En-tête -->
+    <HBox alignment="CENTER_LEFT" spacing="20.0">
+        <Label text="ArtConnect" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: #1A1A2E;" />
+        <Label fx:id="welcomeLabel" text=""
+               style="-fx-font-size: 13; -fx-text-fill: #6D2E46; -fx-font-style: italic;" />
+    </HBox>
+
+    <Label text="Découvrez les expositions, ateliers et artistes de votre communauté."
+           style="-fx-font-size: 13; -fx-text-fill: #666666;" />
+
+    <Separator />
+
+    <!-- Cartes dynamiques -->
+    <ScrollPane fx:id="scrollPane" VBox.vgrow="ALWAYS" fitToWidth="true" hbarPolicy="NEVER">
+        <FlowPane fx:id="discoverPane" hgap="16" vgap="16" prefWrapLength="1100" />
+    </ScrollPane>
+</VBox>

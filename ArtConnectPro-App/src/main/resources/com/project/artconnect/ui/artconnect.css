@@ -1,0 +1,396 @@
+/* ================================================================
+   ArtConnect Pro — Global Stylesheet
+   Style : Clair moderne avec sidebar sombre, accents bordeaux
+   ================================================================ */
+
+/* ----------------------------------------------------------------
+   Variables globales
+   ---------------------------------------------------------------- */
+.root {
+    -ac-berry:     #6D2E46;
+    -ac-berry-dk:  #4A1E30;
+    -ac-berry-lt:  #F5EFE6;
+    -ac-green:     #2D6A4F;
+    -ac-blue:      #3D5A80;
+    -ac-dark:      #1A1A2E;
+    -ac-grey:      #64748B;
+    -ac-light:     #F8F6F3;
+    -ac-white:     #FFFFFF;
+    -ac-border:    #E8E0D8;
+    -fx-font-family: "Georgia";
+    -fx-font-size: 13px;
+}
+
+/* ----------------------------------------------------------------
+   Fenêtre principale
+   ---------------------------------------------------------------- */
+.main-window {
+    -fx-background-color: #F8F6F3;
+}
+
+/* ----------------------------------------------------------------
+   Sidebar
+   ---------------------------------------------------------------- */
+.sidebar {
+    -fx-background-color: #1A1A2E;
+    -fx-min-width: 200px;
+    -fx-max-width: 200px;
+    -fx-padding: 0;
+}
+
+.sidebar-header {
+    -fx-background-color: #0F0F1E;
+    -fx-padding: 20 16 16 16;
+}
+
+.sidebar-logo {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+}
+
+.sidebar-tagline {
+    -fx-font-size: 10px;
+    -fx-text-fill: #6D2E46;
+    -fx-font-style: italic;
+}
+
+.sidebar-user {
+    -fx-background-color: #252540;
+    -fx-padding: 10 16;
+}
+
+.sidebar-user-name {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+}
+
+.sidebar-user-role {
+    -fx-font-size: 10px;
+    -fx-text-fill: #6D2E46;
+}
+
+.sidebar-section-label {
+    -fx-font-size: 9px;
+    -fx-text-fill: #64748B;
+    -fx-padding: 16 16 4 16;
+    -fx-font-family: "Calibri";
+}
+
+/* Boutons de navigation sidebar */
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #B0B8C8;
+    -fx-font-size: 13px;
+    -fx-font-family: "Calibri";
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 16;
+    -fx-cursor: hand;
+    -fx-min-width: 200px;
+    -fx-max-width: 200px;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+}
+
+.nav-button:hover {
+    -fx-background-color: #252540;
+    -fx-text-fill: #FFFFFF;
+}
+
+.nav-button-active {
+    -fx-background-color: #2A1520;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: #6D2E46;
+    -fx-border-width: 0 0 0 3;
+}
+
+.nav-button-logout {
+    -fx-text-fill: #B85042;
+}
+
+.nav-button-logout:hover {
+    -fx-background-color: #2A1010;
+    -fx-text-fill: #FF6B6B;
+}
+
+/* ----------------------------------------------------------------
+   Zone de contenu principale
+   ---------------------------------------------------------------- */
+.content-area {
+    -fx-background-color: #F8F6F3;
+    -fx-padding: 0;
+}
+
+/* ----------------------------------------------------------------
+   En-tête de page
+   ---------------------------------------------------------------- */
+.page-header {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E8E0D8;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 16 24;
+}
+
+.page-title {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1A1A2E;
+}
+
+.page-subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: #64748B;
+}
+
+/* ----------------------------------------------------------------
+   TableView
+   ---------------------------------------------------------------- */
+.table-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E8E0D8;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #F5EFE6;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: #E8E0D8;
+    -fx-border-width: 0 0 1 0;
+    -fx-font-family: "Calibri";
+    -fx-font-size: 12px;
+    -fx-text-fill: #64748B;
+    -fx-font-weight: bold;
+    -fx-padding: 10 12;
+}
+
+.table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #F0EBE3;
+    -fx-border-width: 0 0 1 0;
+    -fx-font-family: "Calibri";
+    -fx-font-size: 13px;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #F5EFE6;
+    -fx-text-fill: #1A1A2E;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #FAF7F4;
+}
+
+/* ----------------------------------------------------------------
+   Boutons
+   ---------------------------------------------------------------- */
+.button {
+    -fx-background-color: #F5EFE6;
+    -fx-text-fill: #1A1A2E;
+    -fx-border-color: #E8E0D8;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 7 16;
+    -fx-font-family: "Calibri";
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #EDE4D8;
+}
+
+.button-primary {
+    -fx-background-color: #6D2E46;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: #4A1E30;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 7 20;
+    -fx-font-family: "Calibri";
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.button-primary:hover {
+    -fx-background-color: #4A1E30;
+}
+
+.button-danger {
+    -fx-background-color: transparent;
+    -fx-text-fill: #B85042;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-font-size: 11px;
+}
+
+.button-danger:hover {
+    -fx-text-fill: #FF4444;
+}
+
+/* ----------------------------------------------------------------
+   TextField / TextArea
+   ---------------------------------------------------------------- */
+.text-field, .text-area {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E8E0D8;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 7 12;
+    -fx-font-family: "Calibri";
+    -fx-font-size: 13px;
+}
+
+.text-field:focused, .text-area:focused {
+    -fx-border-color: #6D2E46;
+    -fx-effect: dropshadow(gaussian, rgba(109,46,70,0.15), 6, 0, 0, 0);
+}
+
+/* ----------------------------------------------------------------
+   ComboBox
+   ---------------------------------------------------------------- */
+.combo-box {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E8E0D8;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-family: "Calibri";
+}
+
+.combo-box:focused {
+    -fx-border-color: #6D2E46;
+}
+
+/* ----------------------------------------------------------------
+   Labels de détails
+   ---------------------------------------------------------------- */
+.detail-label {
+    -fx-font-family: "Calibri";
+    -fx-font-size: 13px;
+    -fx-text-fill: #1A1A2E;
+}
+
+.detail-key {
+    -fx-font-family: "Calibri";
+    -fx-font-size: 12px;
+    -fx-text-fill: #64748B;
+    -fx-font-weight: bold;
+}
+
+.rating-label {
+    -fx-text-fill: #B8860B;
+    -fx-font-size: 15px;
+}
+
+.tags-label {
+    -fx-text-fill: #3D5A80;
+    -fx-font-style: italic;
+}
+
+/* ----------------------------------------------------------------
+   Panneau de détails
+   ---------------------------------------------------------------- */
+.details-pane {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E8E0D8;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 8, 0, 0, 2);
+}
+
+/* ----------------------------------------------------------------
+   Barre de statut
+   ---------------------------------------------------------------- */
+.status-bar {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E8E0D8;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 6 16;
+}
+
+.status-label {
+    -fx-font-family: "Calibri";
+    -fx-font-size: 11px;
+    -fx-text-fill: #64748B;
+}
+
+/* ----------------------------------------------------------------
+   ScrollPane
+   ---------------------------------------------------------------- */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* ----------------------------------------------------------------
+   Separator
+   ---------------------------------------------------------------- */
+.separator .line {
+    -fx-border-color: #E8E0D8;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* ----------------------------------------------------------------
+   ListView
+   ---------------------------------------------------------------- */
+.list-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E8E0D8;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.list-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-font-family: "Calibri";
+    -fx-font-size: 13px;
+    -fx-padding: 8 12;
+}
+
+.list-cell:selected {
+    -fx-background-color: #F5EFE6;
+    -fx-text-fill: #6D2E46;
+}
+
+.list-cell:hover {
+    -fx-background-color: #FAF7F4;
+}
+
+/* ----------------------------------------------------------------
+   TabPane interne (Community, etc.)
+   ---------------------------------------------------------------- */
+.tab-pane .tab-header-area .tab {
+    -fx-background-color: #F5EFE6;
+    -fx-border-radius: 6 6 0 0;
+    -fx-font-family: "Calibri";
+    -fx-font-size: 12px;
+}
+
+.tab-pane .tab-header-area .tab:selected {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #6D2E46;
+    -fx-border-width: 0 0 2 0;
+}
+
+/* ----------------------------------------------------------------
+   Hyperlink
+   ---------------------------------------------------------------- */
+.hyperlink {
+    -fx-text-fill: #6D2E46;
+    -fx-font-family: "Calibri";
+}
+
+.hyperlink:hover {
+    -fx-text-fill: #4A1E30;
+}

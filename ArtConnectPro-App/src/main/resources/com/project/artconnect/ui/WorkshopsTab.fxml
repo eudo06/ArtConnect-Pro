@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.project.artconnect.ui.WorkshopController"
+      spacing="0" styleClass="content-area">
+
+    <HBox styleClass="page-header" alignment="CENTER_LEFT" spacing="16">
+        <VBox spacing="2" HBox.hgrow="ALWAYS">
+            <Label text="Ateliers" styleClass="page-title" />
+            <Label text="Découvrez et rejoignez les ateliers artistiques." styleClass="page-subtitle" />
+        </VBox>
+    </HBox>
+
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+        <padding><Insets bottom="16" left="16" right="16" top="16" /></padding>
+
+        <!-- Tableau -->
+        <VBox spacing="10" HBox.hgrow="ALWAYS">
+            <TableView fx:id="workshopTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="titleColumn"      text="Atelier"      prefWidth="200" />
+                    <TableColumn fx:id="instructorColumn" text="Instructeur"  prefWidth="140" />
+                    <TableColumn fx:id="dateColumn"       text="Date"         prefWidth="130" />
+                    <TableColumn fx:id="locationColumn"   text="Lieu"         prefWidth="130" />
+                    <TableColumn fx:id="capacityColumn"   text="Places"       prefWidth="80" />
+                    <TableColumn fx:id="priceColumn"      text="Prix"         prefWidth="80" />
+                    <TableColumn fx:id="levelColumn"      text="Niveau"       prefWidth="100" />
+                </columns>
+                <placeholder><Label text="Aucun atelier trouvé." /></placeholder>
+            </TableView>
+
+            <HBox spacing="8" alignment="CENTER_RIGHT">
+                <Button fx:id="btnInscription" text="S'inscrire a cet atelier"
+                        onAction="#handleInscription"
+                        styleClass="button-primary" />
+            </HBox>
+        </VBox>
+
+        <!-- Détails -->
+        <VBox spacing="12" prefWidth="340" minWidth="300" styleClass="details-pane">
+
+            <Label text="Détails" style="-fx-font-family: Georgia; -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #1A1A2E;" />
+            <Separator />
+
+            <VBox spacing="2">
+                <Label text="INSTRUCTEUR" styleClass="detail-key" />
+                <Label fx:id="detailsInstructorLabel" text="—"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #1A1A2E;" />
+            </VBox>
+
+            <VBox spacing="2">
+                <Label text="PLANNING &amp; LIEU" styleClass="detail-key" />
+                <Label fx:id="detailsScheduleLabel" text="—" styleClass="detail-label" wrapText="true" />
+            </VBox>
+
+            <VBox spacing="2">
+                <Label text="CAPACITE &amp; NIVEAU" styleClass="detail-key" />
+                <Label fx:id="detailsCapacityLabel" text="—"
+                       style="-fx-font-weight: bold; -fx-text-fill: #2D6A4F;" wrapText="true" />
+            </VBox>
+
+            <VBox spacing="2" VBox.vgrow="ALWAYS">
+                <Label text="DESCRIPTION" styleClass="detail-key" />
+                <TextArea fx:id="detailsDescriptionArea" prefRowCount="6" wrapText="true"
+                          editable="false"
+                          style="-fx-background-color: #F8F6F3; -fx-border-color: transparent;" />
+            </VBox>
+
+        </VBox>
+    </HBox>
+</VBox>

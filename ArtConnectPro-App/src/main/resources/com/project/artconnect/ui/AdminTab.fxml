@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="12.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.project.artconnect.ui.AdminController">
+    <padding>
+        <Insets bottom="12.0" left="14.0" right="14.0" top="12.0" />
+    </padding>
+
+    <!-- En-tête -->
+    <HBox alignment="CENTER_LEFT" spacing="20.0">
+        <Label text="Tableau de bord Administrateur"
+               style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: #1A1A2E;" />
+        <Button text="Rafraichir" onAction="#handleRefresh" />
+    </HBox>
+
+    <Separator />
+
+    <!-- Statistiques globales -->
+    <Label text="Statistiques globales"
+           style="-fx-font-size: 15; -fx-font-weight: bold; -fx-text-fill: #6D2E46;" />
+
+    <HBox spacing="12.0">
+        <!-- Carte Artistes -->
+        <VBox alignment="CENTER" spacing="4.0" prefWidth="130"
+              style="-fx-background-color: #EEF2FA; -fx-border-color: #3D5A80; -fx-border-width: 0 0 0 4; -fx-padding: 10; -fx-background-radius: 6;">
+            <Label fx:id="statArtistesLabel" text="—"
+                   style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #3D5A80;" />
+            <Label text="Artistes" style="-fx-text-fill: #555555; -fx-font-size: 12;" />
+        </VBox>
+        <!-- Carte Membres -->
+        <VBox alignment="CENTER" spacing="4.0" prefWidth="130"
+              style="-fx-background-color: #EAF4EE; -fx-border-color: #2D6A4F; -fx-border-width: 0 0 0 4; -fx-padding: 10; -fx-background-radius: 6;">
+            <Label fx:id="statMembresLabel" text="—"
+                   style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #2D6A4F;" />
+            <Label text="Membres" style="-fx-text-fill: #555555; -fx-font-size: 12;" />
+        </VBox>
+        <!-- Carte Workshops -->
+        <VBox alignment="CENTER" spacing="4.0" prefWidth="130"
+              style="-fx-background-color: #F5EFE6; -fx-border-color: #6D2E46; -fx-border-width: 0 0 0 4; -fx-padding: 10; -fx-background-radius: 6;">
+            <Label fx:id="statWorkshopsLabel" text="—"
+                   style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #6D2E46;" />
+            <Label text="Workshops" style="-fx-text-fill: #555555; -fx-font-size: 12;" />
+        </VBox>
+        <!-- Carte Expositions -->
+        <VBox alignment="CENTER" spacing="4.0" prefWidth="130"
+              style="-fx-background-color: #FFF8E1; -fx-border-color: #B8860B; -fx-border-width: 0 0 0 4; -fx-padding: 10; -fx-background-radius: 6;">
+            <Label fx:id="statExpositionsLabel" text="—"
+                   style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #B8860B;" />
+            <Label text="Expositions" style="-fx-text-fill: #555555; -fx-font-size: 12;" />
+        </VBox>
+        <!-- Carte Réservations -->
+        <VBox alignment="CENTER" spacing="4.0" prefWidth="130"
+              style="-fx-background-color: #F3E5F5; -fx-border-color: #7B1FA2; -fx-border-width: 0 0 0 4; -fx-padding: 10; -fx-background-radius: 6;">
+            <Label fx:id="statReservationsLabel" text="—"
+                   style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #7B1FA2;" />
+            <Label text="Reservations" style="-fx-text-fill: #555555; -fx-font-size: 12;" />
+        </VBox>
+        <!-- Carte Avis -->
+        <VBox alignment="CENTER" spacing="4.0" prefWidth="130"
+              style="-fx-background-color: #FCE4EC; -fx-border-color: #C2185B; -fx-border-width: 0 0 0 4; -fx-padding: 10; -fx-background-radius: 6;">
+            <Label fx:id="statAvisLabel" text="—"
+                   style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #C2185B;" />
+            <Label text="Avis" style="-fx-text-fill: #555555; -fx-font-size: 12;" />
+        </VBox>
+    </HBox>
+
+    <Separator />
+
+    <!-- Contenu en deux colonnes -->
+    <HBox spacing="14.0" VBox.vgrow="ALWAYS">
+
+        <!-- Colonne gauche — Journal d'audit -->
+        <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+            <Label text="Journal d'audit des evenements (50 derniers)"
+                   style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #6D2E46;" />
+            <TableView fx:id="auditTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="auditEventCol"    text="Evenement"  prefWidth="90" />
+                    <TableColumn fx:id="auditActionCol"   text="Action"     prefWidth="70" />
+                    <TableColumn fx:id="auditOldTitleCol" text="Ancien titre" prefWidth="160" />
+                    <TableColumn fx:id="auditNewTitleCol" text="Nouveau titre" prefWidth="160" />
+                    <TableColumn fx:id="auditDateCol"     text="Date"       prefWidth="130" />
+                </columns>
+                <placeholder><Label text="Aucune modification enregistree." /></placeholder>
+            </TableView>
+        </VBox>
+
+        <!-- Colonne droite — Demandes -->
+        <VBox spacing="10.0" prefWidth="460">
+
+            <!-- Demandes artistes -->
+            <Label text="Demandes artistes"
+                   style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #3D5A80;" />
+            <TableView fx:id="artistAppTable" prefHeight="180">
+                <columns>
+                    <TableColumn fx:id="artAppEmailCol"      text="Email"      prefWidth="160" />
+                    <TableColumn fx:id="artAppDisciplineCol" text="Discipline" prefWidth="100" />
+                    <TableColumn fx:id="artAppDateCol"       text="Date"       prefWidth="90" />
+                    <TableColumn fx:id="artAppStatusCol"     text="Statut"     prefWidth="90" />
+                </columns>
+                <placeholder><Label text="Aucune demande." /></placeholder>
+            </TableView>
+            <HBox spacing="8.0" alignment="CENTER_RIGHT">
+                <Button fx:id="btnApproveArtist" text="Approuver"
+                        onAction="#handleApproveArtist"
+                        style="-fx-background-color: #2D6A4F; -fx-text-fill: white;" />
+                <Button fx:id="btnRejectArtist" text="Rejeter"
+                        onAction="#handleRejectArtist"
+                        style="-fx-background-color: #B85042; -fx-text-fill: white;" />
+            </HBox>
+
+            <!-- Demandes promoteurs -->
+            <Label text="Demandes promoteurs"
+                   style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #3D5A80;" />
+            <TableView fx:id="promoterAppTable" prefHeight="180">
+                <columns>
+                    <TableColumn fx:id="proAppEmailCol"  text="Email"        prefWidth="160" />
+                    <TableColumn fx:id="proAppOrgCol"    text="Organisation" prefWidth="130" />
+                    <TableColumn fx:id="proAppDateCol"   text="Date"         prefWidth="90" />
+                    <TableColumn fx:id="proAppStatusCol" text="Statut"       prefWidth="70" />
+                </columns>
+                <placeholder><Label text="Aucune demande." /></placeholder>
+            </TableView>
+            <HBox spacing="8.0" alignment="CENTER_RIGHT">
+                <Button fx:id="btnApprovePromoter" text="Approuver"
+                        onAction="#handleApprovePromoter"
+                        style="-fx-background-color: #2D6A4F; -fx-text-fill: white;" />
+                <Button fx:id="btnRejectPromoter" text="Rejeter"
+                        onAction="#handleRejectPromoter"
+                        style="-fx-background-color: #B85042; -fx-text-fill: white;" />
+            </HBox>
+
+        </VBox>
+    </HBox>
+</VBox>
