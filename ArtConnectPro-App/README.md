@@ -1,13 +1,5 @@
 # ArtConnect Pro
 
-Projet realise dans le cadre du cours **Bases de donnees 2 - TI603**.
-
-Equipe :
-- KABORE Boudnoma
-- GUEZO Merleau
-- KOUADIO Bli Jean Eudes
-- SINGH Arshdeep
-
 ArtConnect Pro est une application JavaFX connectee a une base MySQL. Elle permet de gerer une plateforme artistique locale : artistes, oeuvres, galeries, expositions, workshops, membres, inscriptions, avis, communautes et espace admin.
 
 ## Prerequis
